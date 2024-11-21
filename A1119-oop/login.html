@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Access Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #1a1a1a;
+            --accent-purple: #8a2be2;
+            --highlight-yellow: #ffd700;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #000000 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .auth-container {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+        }
+
+        .form-control {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid var(--accent-purple);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: var(--highlight-yellow);
+            box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+            color: #ffffff;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-purple);
+            border: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--highlight-yellow);
+            color: var(--dark-bg);
+        }
+
+        .toggle-link {
+            color: var(--highlight-yellow);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-link:hover {
+            color: var(--accent-purple);
+            text-decoration: underline;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent-purple);
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
+
+        .form-check-input:checked {
+            background-color: var(--accent-purple);
+            border-color: var(--accent-purple);
+        }
+
+        .form-check-input:focus {
+            border-color: var(--highlight-yellow);
+            box-shadow: 0 0 0 0.2rem rgb(255, 217, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="auth-container">
+            <div id="loginSection">
+                <div class="logo">Login</div>
+                <form>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email Address" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                    <div class="text-center mt-3">
+                        <a href="#" class="toggle-link">Forgot Password?</a>
+                    </div>
+                    <div class="text-center mt-3">
+                        Don't have an account? 
+                        <a href="#" class="toggle-link" onclick="toggleForm()">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="signupSection" style="display:none;">
+                <div class="logo">Sign Up</div>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Full Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email Address" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                    <div class="text-center mt-3">
+                        Already have an account? 
+                        <a href="#" class="toggle-link" onclick="toggleForm()">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleForm() {
+            const loginSection = document.getElementById('loginSection');
+            const signupSection = document.getElementById('signupSection');
+            
+            if (loginSection.style.display === 'none') {
+                loginSection.style.display = 'block';
+                signupSection.style.display = 'none';
+            } else {
+                loginSection.style.display = 'none';
+                signupSection.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
